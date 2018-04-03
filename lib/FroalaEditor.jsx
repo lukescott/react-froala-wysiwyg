@@ -3,6 +3,6 @@ import FroalaEditorFunctionality from './FroalaEditorFunctionality.jsx';
 
 export default class FroalaEditor extends FroalaEditorFunctionality {
   render () {
-    return <this.tag ref="el">{this.props.children}</this.tag>;
+    return <this.tag ref={this.setElementRef}>{this.props.children}</this.tag>;
   }
 }
