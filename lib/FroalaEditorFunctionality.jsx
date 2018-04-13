@@ -10,7 +10,7 @@ export default class FroalaEditorFunctionality extends React.Component {
     this.defaultTag = 'div';
     this.listeningEvents = [];
 
-    // Jquery wrapped element.
+    // jQuery wrapped element.
     this.$element = null;
 
     // Editor element.
@@ -31,6 +31,10 @@ export default class FroalaEditorFunctionality extends React.Component {
     this.oldModel = null;
   }
 
+  setElementRef = (element) => {
+    this.element = element;
+  }
+
   // Before first time render.
   componentWillMount () {
     this.tag = this.props.tag || this.defaultTag;
@@ -38,7 +42,7 @@ export default class FroalaEditorFunctionality extends React.Component {
 
   // After first time render.
   componentDidMount () {
-    let tagName = this.refs.el.tagName.toLowerCase();
+    let tagName = this.element.tagName.toLowerCase();
     if (this.SPECIAL_TAGS.indexOf(tagName) != -1) {
       this.tag = tagName;
       this.hasSpecialTag = true;
@@ -70,7 +74,7 @@ export default class FroalaEditorFunctionality extends React.Component {
 
     this.config = this.props.config || this.config;
 
-    this.$element = $(this.refs.el);
+    this.$element = $(this.element);
 
     this.setContent(true);
 
@@ -219,7 +223,7 @@ export default class FroalaEditorFunctionality extends React.Component {
     }
   }
 
-  // register event on jquery editor element
+  // register event on jQuery editor element
   registerEvent (element, eventName, callback) {
     if (!element || !eventName || !callback) {
       return;
