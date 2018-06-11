@@ -49,8 +49,7 @@ module.exports = {
         test: /\.jsx$/,
         loader: 'babel',
         query: {
-          cacheDirectory: true,
-          presets: ['react','es2015', 'stage-2']
+          cacheDirectory: true
         }
       }
     ]
